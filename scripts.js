@@ -4,6 +4,7 @@ window.addEventListener("load", function() {
     // buttons
     let takeOffButton = document.getElementById("takeoff");
     let landingButton = document.getElementById("landing");
+    let abortButton = document.getElementById("missionAbort");
 
     // html elements we are affecting with our buttons
     let flightStatus = document.getElementById("flightStatus");
@@ -24,6 +25,15 @@ window.addEventListener("load", function() {
         flightStatus.innerHTML = "The shuttle has landed.";
         shuttleBackground.style = "background-color: green";
         spaceShuttleHeight.innerHTML = 0;
+    })
+
+    abortButton.addEventListener("click", function() {
+        let missionAbortConfirmation = window.confirm("Confirm that you want to abort the mission.");
+        if(missionAbortConfirmation === true) {
+            flightStatus.innerHTML = "Mission aborted.";
+            shuttleBackground.style = "background-color: green";
+            spaceShuttleHeight.innerHTML = 0;
+        }
     })
 
 })
